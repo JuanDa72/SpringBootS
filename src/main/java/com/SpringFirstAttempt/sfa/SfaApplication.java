@@ -9,37 +9,7 @@ public class SfaApplication {
 
 	public static void main(String[] args) {
 
-		var cxt = SpringApplication.run(SfaApplication.class, args);
+		SpringApplication.run(SfaApplication.class);
 
-		//Primera forma de obtener un método
-		MyFirstClass mfc= new MyFirstClass("jijo");
-		System.out.println(mfc.sayHello());
-
-		//Segunda forma de obtener un método (Usando bean)
-		MySecondClass objectSecondClass=cxt.getBean(MySecondClass.class);
-		System.out.println(objectSecondClass.sayHello());
-
-		//Tercera forma usando component
-		MyThirdClass objectThirdClass=cxt.getBean(MyThirdClass.class);
-		System.out.println(objectThirdClass.sayHello());
-
-		//Obteniendo el primer servicio usando autowired por dentro
-		MyFirstService objectFirstService=cxt.getBean(MyFirstService.class);
-		System.out.println(objectFirstService.tellAStory());
-
-		//Probando el acceso a environment
-		System.out.println(objectFirstService.getJavaVersion());
-		System.out.println(objectFirstService.getOsname());
-		System.out.println(objectFirstService.getOwnProperty());
-		System.out.println(objectFirstService.GetAnotherPropery());
-		System.out.println(objectFirstService.getOwnPropertyInt());
-		System.out.println(objectFirstService.GetAnotherProperyInt());
 	}
-
-	@Bean
-	public MySecondClass msc(){
-		return new MySecondClass();
-	}
-
-
 }

@@ -11,7 +11,7 @@ public class MyFourthClassConfig {
 
     //Definimos varios beans los cuales podrán ser indentificados por su nombre, qualifer o profile
     @Bean
-    @Profile("dev")
+    //@Profile("dev")
     public MyFourthClass mf4cConfig(){
         return new MyFourthClass("Fourth bean v1");
     }
