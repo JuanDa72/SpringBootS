@@ -1,0 +1,12 @@
+//Applicattion.propierties
+spring.application.name=sfa
+my.custom.property="Jijo its over"
+my.custom.propertyInt=2546
+
+//Appplication-dev.propierties
+my.custom.property="Jijo its over by dev"
+my.custom.propertyInt=559595
+
+//Custom.propierties
+my.prop=Jdcg
+my.propInt=435

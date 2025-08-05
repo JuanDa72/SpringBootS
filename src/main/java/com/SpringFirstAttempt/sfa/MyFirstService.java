@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 //Tenemos que agregar esto dado que creamos otro archivo de propiedades
-@PropertySource("classpath:custom.properties")
+//@PropertySource("classpath:custom.properties")
 public class MyFirstService {
 
     public MyFourthClass myFourthClass;
@@ -17,10 +17,10 @@ public class MyFirstService {
     public Environment environment;
 
     //Insertando un atributo mediante un value
-    @Value("${my.prop}")
+    //@Value("${my.prop}")
     public String customPropertyFromA;
 
-    @Value("${my.propInt}")
+    //@Value("${my.propInt}")
     public String customPropertyFromAInt;
 
     //Inyectando dependencias mediante constructor puesto que es lo mas recomendado

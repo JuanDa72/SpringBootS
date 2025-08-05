@@ -1,10 +1,20 @@
 package com.SpringFirstAttempt.sfa;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class FirstController {
+
+    StudentRepository studentRepository;
+
+    @Autowired
+    public FirstController(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     @GetMapping("/Hello")
     public String sayHello(){
