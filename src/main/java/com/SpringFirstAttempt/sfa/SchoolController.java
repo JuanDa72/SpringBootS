@@ -7,33 +7,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class SchoolController {
 
-    private final SchoolRepository schoolRepository;
+    private final SchoolService schoolService;
 
-    @Autowired
-    public SchoolController(SchoolRepository schoolRepository){
-        this.schoolRepository=schoolRepository;
+
+    public SchoolController(SchoolService schoolService) {
+        this.schoolService = schoolService;
     }
 
     //Para insertar un dato
+    /*Volvemos a usar un dto para insertar y para retornar */
     @PostMapping("/schools")
-    public School create(@RequestBody School school){
-        return schoolRepository.save(school);
+    public SchoolDto create(@RequestBody SchoolDto schoolDto){
+        return schoolService.create(schoolDto);
     }
+
 
     @GetMapping("/schools")
-    public List<School> getAllSchools(){
-        return schoolRepository.findAll();
+    public List<SchoolDto> getAllSchools(){
+        return schoolService.getAllSchools();
     }
-
-
-
-
-
-
 
 
 }

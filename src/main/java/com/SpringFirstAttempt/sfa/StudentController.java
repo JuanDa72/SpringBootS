@@ -5,37 +5,41 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//Todo el siguiente codigo de lógica lo pasamos a studentService para dejar el controller solo para solicitudes
+
 @RestController
 public class StudentController {
 
-    StudentRepository studentRepository;
+    private final StudentService studentService;
 
     @Autowired
-    public StudentController(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
+
     @PostMapping("/students")
-    public Student postStudent(@RequestBody Student student){
-        return studentRepository.save(student);
+    public StudentResponseDto saveStudent(@RequestBody StudentDto studentDto){
+        return this.studentService.saveStudent(studentDto);
     }
 
     @GetMapping("/students")
-    public List<Student> findAllStudents(){
-        return studentRepository.findAll();
+    public List<StudentResponseDto> findAllStudents(){
+        return studentService.findAllStudents();
     }
 
-    //En este caso retorna un objeto de tipo optinal, si no encuentra
+
+    //En este caso retorna un objeto de tipo optional, si no encuentra
     //un estudiante con ese id entonces crea uno objeto estudiante vacìo y lo retorna
     @GetMapping("/students/{student-id}")
-    public Student findStudentById(@PathVariable("student-id") Integer id){
-        return studentRepository.findById(id).orElse(new Student());
+    public StudentResponseDto findStudentById(@PathVariable("student-id") Integer id){
+        return studentService.findStudentById(id);
     }
 
 
     @GetMapping("/students/search/{student-name}")
-    public List<Student> findStudentByName(@PathVariable("student-name") String firstName){
-        return studentRepository.findAllByFirstNameContaining(firstName);
+    public List<StudentResponseDto> findStudentByName(@PathVariable("student-name") String firstName){
+        return studentService.findStudentByName(firstName);
     }
 
 
@@ -43,9 +47,8 @@ public class StudentController {
     @DeleteMapping("/students/{student-id}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable("student-id") Integer id){
-        studentRepository.deleteById(id);
+        studentService.delete(id);
     }
-
 
 
 }
