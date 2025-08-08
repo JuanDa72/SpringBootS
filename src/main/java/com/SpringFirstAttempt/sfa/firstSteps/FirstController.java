@@ -1,10 +1,9 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.firstSteps;
 
+import com.SpringFirstAttempt.sfa.student.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class FirstController {

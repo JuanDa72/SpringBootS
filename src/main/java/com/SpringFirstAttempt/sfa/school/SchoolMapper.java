@@ -1,5 +1,7 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.school;
 
+import com.SpringFirstAttempt.sfa.school.School;
+import com.SpringFirstAttempt.sfa.school.SchoolDto;
 import org.springframework.stereotype.Service;
 
 @Service

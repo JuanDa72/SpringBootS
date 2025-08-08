@@ -1,5 +1,6 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.school;
 
+import com.SpringFirstAttempt.sfa.student.Student;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 

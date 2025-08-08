@@ -1,4 +1,4 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.student;
 
 
 //Todos los atributos quedan como private final

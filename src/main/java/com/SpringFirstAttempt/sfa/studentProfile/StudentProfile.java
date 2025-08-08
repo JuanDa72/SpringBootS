@@ -1,5 +1,6 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.studentProfile;
 
+import com.SpringFirstAttempt.sfa.student.Student;
 import jakarta.persistence.*;
 
 @Entity

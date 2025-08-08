@@ -1,5 +1,7 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.student;
 
+import com.SpringFirstAttempt.sfa.studentProfile.StudentProfile;
+import com.SpringFirstAttempt.sfa.school.School;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
@@ -37,6 +39,9 @@ public class Student {
         this.lastName=lastName;
         this.email=email;
         this.age=age;
+    }
+
+    public Student(String firstName, String lastName, String email, int age) {
     }
 
     public Integer getId() {

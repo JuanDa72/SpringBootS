@@ -1,0 +1,43 @@
+package com.SpringFirstAttempt.sfa.student;
+
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class StudentMapperTest {
+
+
+    @AfterAll
+    static void afterAll() {
+        System.out.println("Inside the after all method");
+    }
+
+    //Usamos este método cuando queremos establecer algo al inicio de la ejecución pero solo una vez
+    //y NO una vez por cada método
+    @BeforeAll
+    static void beforeAll(){
+        System.out.println("Inside the before all method");
+    }
+
+    @BeforeEach
+    void setUp() {
+        System.out.println("Inside the before each method");
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("Inside the after each method");
+    }
+
+    @Test
+    public void testMethod1(){
+        System.out.println("My first test method");
+    }
+
+    @Test
+    public void testMethod2(){
+        System.out.println("My second test method");
+    }
+
+
+}

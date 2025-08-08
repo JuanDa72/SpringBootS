@@ -1,5 +1,9 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.school;
 
+import com.SpringFirstAttempt.sfa.school.School;
+import com.SpringFirstAttempt.sfa.school.SchoolDto;
+import com.SpringFirstAttempt.sfa.school.SchoolMapper;
+import com.SpringFirstAttempt.sfa.school.SchoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

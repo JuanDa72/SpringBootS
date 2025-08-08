@@ -1,8 +1,13 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.student;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 //Todo el siguiente codigo de lógica lo pasamos a studentService para dejar el controller solo para solicitudes
@@ -19,7 +24,7 @@ public class StudentController {
 
 
     @PostMapping("/students")
-    public StudentResponseDto saveStudent(@RequestBody StudentDto studentDto){
+    public StudentResponseDto saveStudent(@Valid @RequestBody StudentDto studentDto){
         return this.studentService.saveStudent(studentDto);
     }
 
@@ -49,6 +54,27 @@ public class StudentController {
     public void delete(@PathVariable("student-id") Integer id){
         studentService.delete(id);
     }
+
+
+    //Manejo de las exepciones
+    //Este error es el que nos sale cuando no llenamos los campos obligatorios
+    //ResponseEntity es un objeto que representa el cuerpo completo de la solicitud http
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<?> handleMethodArgumentNotValidException(
+            MethodArgumentNotValidException exp
+    ) {
+        var errors = new HashMap<String, String>();
+        exp.getBindingResult().getAllErrors().forEach(error -> {
+            var fieldName = ((FieldError) error).getField();
+            var errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+
+        });
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+
+    }
+
+
 
 
 }

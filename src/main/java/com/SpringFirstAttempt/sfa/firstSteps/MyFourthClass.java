@@ -1,4 +1,4 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.firstSteps;
 
 public class MyFourthClass {
 

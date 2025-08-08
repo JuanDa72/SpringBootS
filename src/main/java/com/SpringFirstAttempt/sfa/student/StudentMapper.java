@@ -1,4 +1,5 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.student;
+import com.SpringFirstAttempt.sfa.school.School;
 import org.springframework.stereotype.Service;
 
 
@@ -10,6 +11,9 @@ public class StudentMapper {
 
     /*Clase que hace la conversión entre dtoStudent y Student convencional */
     public Student toStudent(StudentDto dto){
+        if(dto==null){
+            throw new NullPointerException("The student DTO is null");
+        }
         var student= new Student();
         student.setFirstName(dto.firstName());
         student.setLastName(dto.lastName());

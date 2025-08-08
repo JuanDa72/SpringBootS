@@ -1,5 +1,6 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.student;
 
+import com.SpringFirstAttempt.sfa.student.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.SpringFirstAttempt.sfa;
+package com.SpringFirstAttempt.sfa.school;
 
 public record SchoolDto(
 
