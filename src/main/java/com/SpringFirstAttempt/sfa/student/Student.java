@@ -12,10 +12,12 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    //@Column(name = "f_name")
     private String firstName;
 
     private String lastName;
 
+    @Column(unique = true)
     private String email;
 
     private int age;
