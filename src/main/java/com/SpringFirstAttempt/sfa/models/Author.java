@@ -4,27 +4,24 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 //Lombok con estas etiquetas genera automaticamente los getter, setter, constructors
+@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 
 //Si ponemos la anotación @Data ya genramos todas las de arriba a excepcion de noArgsConstructor
 
 @Entity
-public class Author {
-
-    @Id
-    private Integer id;
+public class Author extends BaseEntity {
 
     @Column(name = "f_name",length = 35)
     private String firstName;
@@ -39,25 +36,6 @@ public class Author {
 
     @ManyToMany(mappedBy = "authors")
     private List<Course> courses;
-
-    @Column(
-            updatable = false,
-            nullable = false
-    )
-    private LocalDateTime createdAt;
-
-    @Column(
-            insertable = false
-    )
-    private LocalDateTime lastModified;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
