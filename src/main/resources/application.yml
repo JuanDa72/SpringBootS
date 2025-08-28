@@ -17,6 +17,11 @@ spring:
 
 
   security:
+    jwt:
+      secret-key: gdQldjQ+y+e5MqO69sq7YEOBSK7u/IKHM/jlQ+rFg0I
+      expiration: 86400000
+      refresh-token:
+        expiration: 100000000000
     user:
       name: juanda
       password: jijoxd
