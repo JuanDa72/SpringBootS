@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Data
 @Builder
 //La anotación builder es útil ya que nos permite crear objetos de tipo user2 de forma mas legible e
@@ -33,7 +35,7 @@ public class User2 {
     private String password;
 
     @OneToMany(mappedBy = "user")
-    private String<Token> tokens;
+    private List<Token> tokens;
 
 
 }

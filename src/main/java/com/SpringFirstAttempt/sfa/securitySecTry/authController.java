@@ -12,15 +12,25 @@ public class authController {
 
     private final AuthService authService;
 
-    public authController() {
+    public authController(AuthService authService) {
+        this.authService = authService;
     }
 
     //Usamos responseEntity para controlar mucho mas la respuesta que ofrecemos desde el backend como
     //el codigo, el body y la firma (creo)
+
+
+    //Arreglar esto despues mientras verifico los test xd
+
+    /*
     @PostMapping("/register")
     public ResponseEntity<TokenResponse> register(@RequestBody final RegisterRequest request){
         final TokenResponse token=service.register(request);
         return ResponseEntity.ok(token);
+        return null;
     }
+
+
+     */
 
 }
